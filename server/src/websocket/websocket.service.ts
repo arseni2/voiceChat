@@ -28,6 +28,7 @@ export class WebsocketService {
     async userJoinToRoom(socket: Socket, roomId: number, token: string, io: any) {
         socket.join(`ROOM/${roomId}`);
         const user = await this.getUserByToken(token);
+        console.log(user)
         this.rooms[socket.id] = { roomId, user };
         const allUserInRoom = this.getUsersFromRoom(this.rooms, roomId);
 

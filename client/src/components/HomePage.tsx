@@ -23,7 +23,7 @@ export const HomePage = ({initialRooms, user}: propsType) => {
             <Header onRoomCreated={fetchRooms}/>
             <div className={"p-2 mt-2 flex gap-4 flex-wrap"}>
                 {rooms ? rooms.map(room => (
-                    <RoomCard deleteRoomById={deleteRoomById} key={room.id} title={room.title} memberCount={room.memberCount} id={room.id}/>
+                    <RoomCard password={room.password} author={room.author} deleteRoomById={deleteRoomById} key={room.id} title={room.title} id={room.id}/>
                 )) : <p>net cpmnat</p>}
             </div>
         </div>

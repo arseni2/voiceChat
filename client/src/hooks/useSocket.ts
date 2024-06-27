@@ -5,8 +5,8 @@ import {getUserProfile} from "@/api/auth";
 
 export const useSocket = () => {
     const cookies = useCookies();
-    const [user, setUser] = useState()
     const socketRef = React.useRef<Socket>();
+
 
     if (!socketRef.current) {
         // @ts-ignore
@@ -20,10 +20,7 @@ export const useSocket = () => {
     }
 
     React.useEffect(() => {
-        getUserProfile(cookies.get("token")).then((data) => {
-            // @ts-ignore
-            return setUser(data);
-        })
+
         return () => {
             if (socketRef.current) {
                 console.log('disconnect!!!');
@@ -33,5 +30,5 @@ export const useSocket = () => {
     }, []);
 
     // @ts-ignore
-    return [socketRef.current, user];
+    return socketRef.current;
 };

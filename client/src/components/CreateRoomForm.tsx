@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import {getDataFromForm} from "@/utils/getDataFromForm";
 import {createRoomFetch, createRoomFetchPayloadType, RoomType} from "@/api/room";
+import PasswordField from "@/sharedComponents/PasswordField";
 
 type propsType = {
     onRoomCreated?: (room: RoomType) => void
@@ -20,8 +21,9 @@ const CreateRoomForm = ({ onRoomCreated }: propsType) => {
             onRoomCreated(res)
         }
     }
+
     return (
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{mt: 1, p: 3}}>
+        <Box component="form" onSubmit={handleSubmit} noValidate sx={{p: 1}}>
             <TextField
                 margin="normal"
                 required
@@ -32,6 +34,8 @@ const CreateRoomForm = ({ onRoomCreated }: propsType) => {
                 autoComplete="email"
                 autoFocus
             />
+
+            <PasswordField name={"password"} helperText={"оставьте пустым если хотите сделать комнату публичной"} className={"w-full"} />
 
             <Button
                 type="submit"

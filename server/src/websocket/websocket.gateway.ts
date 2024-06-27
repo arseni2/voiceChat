@@ -26,6 +26,7 @@ export class WebsocketGateway {
     }
 
     handleDisconnect(socket: Socket){
+        console.log("DISCONNECT")
         this.websocketService.userLeaveFromRoom(socket);
     }
 }

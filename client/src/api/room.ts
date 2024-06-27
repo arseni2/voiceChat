@@ -8,6 +8,7 @@ export type RoomType = {
     id: number
     title: string
     author: UserType
+    password?: string
 }
 export const getAllRoomsFetch = cache( async (): Promise<RoomType[]> => {
     try {

@@ -11,4 +11,7 @@ export class RoomEntity {
 
     @ManyToOne(() => UserEntity, (user) => user.rooms, {})
     author: UserEntity
+
+    @Column({nullable: true})
+    password?: string
 }
